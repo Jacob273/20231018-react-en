@@ -1,8 +1,13 @@
+import PropTypes from 'prop-types'
 
-export function Header() {
+Header.propTypes = {
+    title: PropTypes.string
+}
+
+export function Header({title = 'Auction Portal'}) {
    return (
     <header>
-        <h1>Auction Portal</h1>
+        <h1>{title}</h1>
     </header>
    ) 
 }
