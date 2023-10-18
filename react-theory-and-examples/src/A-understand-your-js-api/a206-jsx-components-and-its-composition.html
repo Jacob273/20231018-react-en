@@ -36,9 +36,27 @@
      * Component composition using JSX
 	 * */
 
+     // console.log('!')
+
+     function Greetings() {
+        return <span>  Hello 2nd component  </span>
+     }
+
+     function HelloWorld() {
+        return (
+            <div>
+                <h2> Hello world </h2>
+                <strong> this is my first component </strong>
+                <p> <Greetings /> </p>
+            </div>
+        )
+     }
+
+    
+
 	// Function component in React (simplest possible version of the component)
 	const App = () => (
-      <div> </div>
+      <div> <HelloWorld/> </div>
     )
 
     const root = ReactDOM.createRoot(document.getElementById('root'));
