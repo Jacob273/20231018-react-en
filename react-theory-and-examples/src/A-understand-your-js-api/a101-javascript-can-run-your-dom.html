@@ -44,8 +44,6 @@
          */
 
         function helloWrapperFactory() {
-            const root = document.querySelector('#root')
-
             const div = document.createElement('div');
             div.className = 'helloWrapper'
             // div.classList.add('helloWrapper')
@@ -62,9 +60,10 @@
 
             div.append(h2, p)
 
-            return div
+            return div;
         }
 
+        const root = document.querySelector('#root')
         root.appendChild(helloWrapperFactory())
 
         
