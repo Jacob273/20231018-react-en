@@ -31,11 +31,14 @@
 
     const myElement = (<p>Hello element !</p>)
 
-	const App = () => (
+	  const App = () => (
       <main>
         <h1>Playground</h1>
         <section>
           {/* Embed the components and JSX element below: */}
+          <MyComponent />
+          <MyOtherComponent />
+          {myElement}
         </section>
       </main>
     )
