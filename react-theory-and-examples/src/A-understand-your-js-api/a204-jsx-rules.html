@@ -21,8 +21,8 @@
          * */
         // -> 1. the word `class` is not allowed
         const iCannotUseClassKeyword = (
-	        <div class="wrapper">
-		        <p class="box">
+	        <div className="wrapper">
+		        <p className="box">
 			        This is a box!
 		        </p>
 		        <p>
@@ -33,49 +33,64 @@
 
 
         // -> 2.A JSX code block can only have one root element (top/root)
-	    /*
 	    const iNeedToHaveOneRootElement = (
-            <div className="helloWrapper">
-                <h2>Hello World 2</h2>
-                <p className="box">
-                    I Need To Have One Root Element
-                </p>
-            </div>
-            <div>
-                  Second element
-            </div>
+            <>
+                <div className="helloWrapper">
+                    <h2>Hello World 2</h2>
+                    <p className="box">
+                        I Need To Have One Root Element
+                    </p>
+                </div>
+                <div>
+                    Second element
+                </div>
+            </>
         )
-        */
+
 
         // -> 3. The style attribute must be a JavaScript object
         const styleAttributeNeedToBeAnJSObject = (
             <div>
               <div> Info </div>
-              <p style="background-color: lightgreen"> Operation successful </p>
+              <p style={{backgroundColor: 'lightgreen'}}> Operation successful </p>
             </div>
         )
 
 
         // -> 4. Component names must be capitalized (PascalCase)!
-        function camelCaseWontWork() {
+        function CamelCaseWontWork() {
         	return (<div> What is wrong with me? </div>)
         }
 
         // -> 5. Standard HTML comments will not work:
-        /*
+        
         const elementWithCommentedBlockOfCode = (
 	        <div>
 		        <div> Hello xyz! </div>
-                <!-- this will not work -->
-                {/* This is a way to do it ( [remove exclamation] ->) *!/}
+                {/* This is a way to do it ( [remove exclamation] ->) */}
 	        </div>
         )
-        */
+        
+
+        // allowed signs in identifiers
+        // const myhName_$ = 1
 
         const root = ReactDOM.createRoot(document.getElementById('root'));
         root.render(
-	        ( <div> replace code here! </div> )
+	        ( <div>
+                 <em>hello</em> 
+                 {<em>hello</em>}  
+                 
+                 {iCannotUseClassKeyword} 
+                 {iNeedToHaveOneRootElement}
+                 {styleAttributeNeedToBeAnJSObject}
+                 <CamelCaseWontWork />
+            </div>
+            )
         );
+
+        // document.body.style.backgroundColor = 'red'
+
 </script>
 </body>
 </html>
