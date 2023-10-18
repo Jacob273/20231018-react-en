@@ -42,12 +42,13 @@
         return <span>  Hello 2nd component  </span>
      }
 
-     function HelloWorld() {
+     function HelloWorld({children}) {
         return (
             <div>
                 <h2> Hello world </h2>
                 <strong> this is my first component </strong>
-                <p> <Greetings /> </p>
+                <p> {children} </p>
+
             </div>
         )
      }
@@ -56,7 +57,14 @@
 
 	// Function component in React (simplest possible version of the component)
 	const App = () => (
-      <div> <HelloWorld/> </div>
+      <div> 
+        <HelloWorld> 
+            <Greetings />
+        </HelloWorld> 
+        <HelloWorld> 
+            <em>some other text</em>
+        </HelloWorld> 
+      </div>
     )
 
     const root = ReactDOM.createRoot(document.getElementById('root'));
