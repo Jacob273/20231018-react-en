@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> JSX Component Composition </title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script crossorigin src="https://unpkg.com/@babel/standalone@7.18.12/babel.min.js"></script>
+</head>
+<body>
+
+<div id="root"></div>
+
+<script type="text/babel">
+	/**
+     * Task:
+     * Note: Use functions to prepare components.
+     *
+     *
+     * Prepare a new HelloWorld component displaying:
+     * <div>
+     *     <h2> Hello world </h2>
+     *     <strong> this is my first component </strong>
+     *     <p>  <p>
+     * </div>
+     *
+     * 1. Place it, in the App component
+     * 2. Prepare the another component: Greetings
+     *
+     * let it display greetings in the format:
+     * <span> Hello 2nd component </span>
+     *
+     * 3. embed it in the HelloWorld component between the <p> </p> tag
+     *
+	 * Objective:
+     * Component composition using JSX
+	 * */
+
+	// Function component in React (simplest possible version of the component)
+	const App = () => (
+      <div> </div>
+    )
+
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(<App />);
+</script>
+</body>
+</html>

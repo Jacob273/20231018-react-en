@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> That was too static - show me the PROPS! </title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script crossorigin src="https://unpkg.com/@babel/standalone@7.18.12/babel.min.js"></script>
+</head>
+<body>
+
+<div id="root"></div>
+
+<script type="text/babel">
+	/**
+     * Task:
+     * 1. Modify the component and its JSX calls to represent the same as the "Should Be" block
+	 * */
+
+    // Modify the component:
+	const Greetings = () => (
+		<div>
+            Hello user!
+        </div>
+    )
+
+	const App = () => (
+      <main>
+          <div>
+            <h2> Task: </h2>
+            {/* In App, only modify the code in this div (under this comment): */}
+            <Greetings />
+            <Greetings />
+            <Greetings />
+            <Greetings />
+          </div>
+          <div>
+            <h2> Should Be: </h2>
+            <div>Hello Jack !</div>
+            <div>Hello Kriss !</div>
+            <div>Hello Jenna !</div>
+            <div>Hello Martha !</div>
+          </div>
+      </main>
+    )
+
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(<App />);
+</script>
+</body>
+</html>

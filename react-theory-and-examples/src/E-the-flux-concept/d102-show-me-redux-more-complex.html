@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Redux bit complex</title>
+</head>
+<body>
+
+    <main id="root">
+
+    </main>
+
+    <script type="module">
+        import { configureStore } from 'https://cdn.jsdelivr.net/npm/@reduxjs/toolkit@1.9.7/+esm'
+
+        const initialState = {
+            products: ['cola']
+        }
+
+        // Reducer is a regular function,
+        // Takes a state and returns the next state, based on the action
+        // Reducers will create "branches of our state tree"
+        function ordersReducer(state = initialState, action) {
+            switch (action.type) {
+                case 'orders/add-new':
+                    return {
+                        ...state,
+                        products: [...state.products, action.payload]
+                    }
+                default:
+                    return state;
+            }
+        }
+        const addNewOrder = (order) => ({type: 'orders/add-new', payload: order});
+
+        // PROVIDER - store, state tree:
+        const store = configureStore({
+            reducer: {
+                orders: ordersReducer
+            },
+            devTools: true
+            // https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd
+        });
+
+        // CONSUMER - listen to state changes:
+        store.subscribe(() => {
+            console.log(store.getState());
+        })
+
+        // EVENTS (actions dispatcher) - Zmiana stanu.
+        store.dispatch(addNewOrder('pizza'));
+        store.dispatch(addNewOrder('pasta'));
+        store.dispatch(addNewOrder('chicken'));
+    </script>
+</body>
+</html>

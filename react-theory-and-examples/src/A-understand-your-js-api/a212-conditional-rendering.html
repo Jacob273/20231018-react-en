@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> Conditional Rendering </title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script crossorigin src="https://unpkg.com/@babel/standalone@7.18.12/babel.min.js"></script>
+</head>
+<body>
+
+<div id="root"></div>
+
+<script type="text/babel">
+
+    /**
+     * Task:
+     * 1. Add a button that changes the value of the isWeatherFine state
+     * 2. The HappySunnyFace component should appear (in the space below) only if the weather is good (isWeatherFine = true)
+     * 3. Check what primitive types React can render in JSX
+     *
+     * Objective:
+     * Checking how to render something in React or not depending on the condition.
+     *
+     * Help:
+     * https://react.dev/learn/conditional-rendering
+     * */
+
+    const HappySunnyFace = () => (<span> 😎 </span>)
+
+    const { useState } = React;
+
+    function Toggler() {
+
+	    const [isWeatherFine, setIsWeatherFine] = useState(true)
+
+	    return (
+		    <div>
+                The weather is { isWeatherFine ? 'Good' : 'Bad' }
+			    <div>
+				    {/* add button here */}
+			    </div>
+			    <div>
+				    {/* add the code for the component here */}
+			    </div>
+		    </div>
+	    )
+    }
+
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(<Toggler />);
+</script>
+</body>
+</html>

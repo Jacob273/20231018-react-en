@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> The private State of the component </title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script crossorigin src="https://unpkg.com/@babel/standalone@7.18.12/babel.min.js"></script>
+</head>
+<body>
+
+<div id="root"></div>
+
+<script type="text/babel">
+	/**
+     *
+	 * Objective:
+     * Introduction of the concept of state as a way of modifying a component inside it.
+     * Notice that the state is read-only and can only be used and updated within
+     * component that declares it (so called "local state").
+     *
+	 * */
+
+    const { useState } = React;
+
+    function App() {
+		const [name, setName] = useState('World');
+	    return (
+		    <div>
+			    <h1>Hello {name}</h1>
+			    <button onClick={() => setName('Michael')}> Change the Title</button>
+		    </div>
+	    )
+    }
+
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(<App />);
+</script>
+</body>
+</html>

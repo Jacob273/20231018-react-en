@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>React is just a library</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <style>
+        .helloWrapper {
+            text-align: center;
+        }
+        .box {
+            padding: 15px;
+            border: 3px solid darkred;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="app"></div>
+
+    <div id="ourExample"></div>
+
+    <script>
+	    /**
+         *
+         * Objective:
+         * Getting to know React. Understanding that it's just a UI and rendering library.
+         * It main interest is the view layer.
+         * In this arrangement, we can quite easily "attach" it to part/all of our project.
+	     *
+	     * */
+	    const h1 = React.createElement('h1', null, 'Hello, React!');
+	    const $app = document.getElementById('app');
+	    const rootElement = ReactDOM.createRoot($app);
+		rootElement.render(h1);
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> Lifecycle methods </title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script crossorigin src="https://unpkg.com/@babel/standalone@7.18.12/babel.min.js"></script>
+</head>
+<body>
+
+<div id="root"></div>
+
+<script type="text/babel">
+
+    /**
+     * Help:
+     * https://react.dev/learn/lifecycle-of-reactive-effects
+     * */
+
+	const { useState, useEffect } = React;
+
+    function LifecycleMethods({someText}) {
+
+        useEffect(() => {
+          console.log('Fire Once, when LifecycleMethods mounted on DOM | Mounting')
+          return () => {
+	          console.log('Fire Once, when LifecycleMethods UNMOUNTED from DOM | Unmounting')
+          }
+        }, [])
+
+	    useEffect(() => {
+		    console.log('Fire N times, when LifecycleMethods "someText" prop updated | Updating')
+	    }, [someText])
+
+	    return (
+	    	<p>
+                Look inside the console to see my lifecycle events ! {someText}
+            </p>
+        )
+    }
+
+    function MyButton({text, clickCallback}) {
+	    return <button onClick={() => clickCallback()} > {text} </button>
+    }
+
+    function App() {
+	    const [show, setShow] = useState(true);
+        const [inputText, setInputText] = useState('');
+    	return (
+    		<>
+            <label>
+                Some text: <input value={inputText} onInput={({target}) => setInputText(target.value)} />
+            </label>
+            <MyButton clickCallback={() => setShow(s => !s)} text="Toggle the component" />
+             { show && <LifecycleMethods someText={inputText} /> }
+            </>
+        )
+    }
+
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(<App />);
+</script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>React is just a library</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <style>
+        .helloWrapper {
+            text-align: center;
+        }
+        .box {
+            padding: 15px;
+            border: 3px solid darkred;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="app"></div>
+
+    <script>
+	    /*
+            Our earlier example:
+
+            <div class="helloWrapper">
+                <h2>Hello World 2</h2>
+                <p class="box">
+                    Welcome to my example
+                </p>
+            </div>
+
+            How to solve it with React?
+        */
+	    const h2 =  React.createElement('h2', null, 'Hello World 2');
+	    const p =  React.createElement('p', {className: 'box'}, ' Welcome to my example');
+	    const div =  React.createElement('div', {className: 'helloWrapper'}, h2, p);
+
+        const rootElement = ReactDOM.createRoot(document.getElementById('app'));
+        rootElement.render(div);
+    </script>
+</body>
+</html>

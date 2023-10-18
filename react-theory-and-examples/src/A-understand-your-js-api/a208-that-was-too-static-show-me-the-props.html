@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> That was too static - show me the PROPS! </title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script crossorigin src="https://unpkg.com/@babel/standalone@7.18.12/babel.min.js"></script>
+</head>
+<body>
+
+<div id="root"></div>
+
+<script type="text/babel">
+    /**
+     * Objective:
+     * Level up!
+     * Understanding the basic communication mechanism in React.
+     * Passing data and displaying its values in the DOM.
+    * */
+
+    function Paragraph({text, emoji}) {
+      return <p title={text}> {emoji} </p>;
+    }
+
+    const App = () => (
+      <main>
+        <Paragraph text="Theater" emoji="🎭" />
+        <Paragraph text="Toadstool" emoji="🍄" />
+      </main>
+    )
+
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(<App />);
+</script>
+</body>
+</html>

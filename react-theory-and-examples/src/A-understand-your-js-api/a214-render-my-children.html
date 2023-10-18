@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> Render props.children </title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script crossorigin src="https://unpkg.com/@babel/standalone@7.18.12/babel.min.js"></script>
+</head>
+<body>
+
+<div id="root"></div>
+
+<script type="text/babel">
+
+    /**
+     * Objective:
+     * Checking the operation of the special props.children.
+     * Thanks to which we can dynamically include JSX elements / components transferred to the component
+     *
+     * Help:
+     * https://react.dev/learn/passing-props-to-a-component#passing-jsx-as-children
+     * */
+
+    function Sentences(props) {
+	    return (
+	    	<div>
+                <h2>Paragraph:</h2>
+                { props.children }
+            </div>
+        )
+    }
+
+    function App() {
+    	return (
+    		<Sentences>
+                <div> This is my 1st sentence </div>
+                <div> This is my 2nd sentence </div>
+                <div> This is my 3rd sentence</div>
+                <div> This is my 4th sentence </div>
+            </Sentences>
+        )
+    }
+
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(<App />);
+</script>
+</body>
+</html>

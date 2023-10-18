@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> State, props and composition </title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script crossorigin src="https://unpkg.com/@babel/standalone@7.18.12/babel.min.js"></script>
+</head>
+<body>
+
+<div id="root"></div>
+
+<script type="text/babel">
+	/**
+     * Task:
+     * 1. Achieve the same behavior as in the previous example, but use the Greetings component
+     *
+	 * Objective:
+     * Understand the concept of status updates. Where the Component() function is called again [render].
+     * All components that are returned in the method will have their props values updated
+     * because the state updated and [render] was executed again.
+     *
+	 * */
+
+    const { useState } = React;
+
+    // Note the use of props destructuring
+    // instead of props.fullName we write: {fullName} in the argument list, and we can use just "fullName"
+    const Greetings = ({fullName}) => (
+        <div>
+            Hello {fullName} !
+        </div>
+    )
+
+
+    function App() {
+	    const [name, setName] = useState('World');
+	    return (
+		    <div>
+			    {/* use Greetings component here */}
+			    <button onClick={() => setName('Michael')}> Change Name</button>
+		    </div>
+	    )
+    }
+
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(<App />);
+</script>
+</body>
+</html>

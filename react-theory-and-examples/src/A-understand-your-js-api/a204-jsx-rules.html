@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> JSX Usage Rules </title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script crossorigin src="https://unpkg.com/@babel/standalone@7/babel.min.js"></script>
+</head>
+<body>
+
+    <div id="root"></div>
+
+    <script type="text/babel">
+        /**
+         * Task:
+         * Uncomment example by example and correct the syntax
+         *
+         * Objective:
+         * Learning the rules of using JSX syntax.
+         * */
+        // -> 1. the word `class` is not allowed
+        const iCannotUseClassKeyword = (
+	        <div class="wrapper">
+		        <p class="box">
+			        This is a box!
+		        </p>
+		        <p>
+		            I Cannot Use "class" Keyword
+		        </p>
+	        </div>
+        )
+
+
+        // -> 2.A JSX code block can only have one root element (top/root)
+	    /*
+	    const iNeedToHaveOneRootElement = (
+            <div className="helloWrapper">
+                <h2>Hello World 2</h2>
+                <p className="box">
+                    I Need To Have One Root Element
+                </p>
+            </div>
+            <div>
+                  Second element
+            </div>
+        )
+        */
+
+        // -> 3. The style attribute must be a JavaScript object
+        const styleAttributeNeedToBeAnJSObject = (
+            <div>
+              <div> Info </div>
+              <p style="background-color: lightgreen"> Operation successful </p>
+            </div>
+        )
+
+
+        // -> 4. Component names must be capitalized (PascalCase)!
+        function camelCaseWontWork() {
+        	return (<div> What is wrong with me? </div>)
+        }
+
+        // -> 5. Standard HTML comments will not work:
+        /*
+        const elementWithCommentedBlockOfCode = (
+	        <div>
+		        <div> Hello xyz! </div>
+                <!-- this will not work -->
+                {/* This is a way to do it ( [remove exclamation] ->) *!/}
+	        </div>
+        )
+        */
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(
+	        ( <div> replace code here! </div> )
+        );
+</script>
+</body>
+</html>
