@@ -17,22 +17,34 @@
      * 1. Modify the component and its JSX calls to represent the same as the "Should Be" block
 	 * */
 
+  //  const Possible = ({hello}) => (
+	// 	 <div>
+  //      Possible {hello}
+  //    </div>
+  //   )
+
     // Modify the component:
-	const Greetings = () => (
-		<div>
-            Hello user!
+	const Greetings = ({name}) => {
+
+    //  if(someComponent) {
+    //   const DynamicComponent = someComponent
+    //   return <div><DynamicComponent hello="!!!!" /></div>
+    //  }
+
+		 return <div>
+            Hello {name}!
         </div>
-    )
+    }
 
 	const App = () => (
       <main>
           <div>
             <h2> Task: </h2>
             {/* In App, only modify the code in this div (under this comment): */}
-            <Greetings />
-            <Greetings />
-            <Greetings />
-            <Greetings />
+            <Greetings name="Jack"/>
+            <Greetings name="Kriss" />
+            <Greetings name="Jenna" />
+            <Greetings name="Martha" />
           </div>
           <div>
             <h2> Should Be: </h2>
