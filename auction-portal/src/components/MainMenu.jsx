@@ -1,10 +1,12 @@
 import { useState } from 'react'
+import classNames from 'classnames'
 
 export function MainMenu() {
 
   const [isMenuShown, setMenuShown] = useState(false);
-  const standardCollapseClasses = "collapse navbar-collapse";
-  const computedClasses =  isMenuShown ? standardCollapseClasses + ' show' : standardCollapseClasses; 
+    //   const standardCollapseClasses = "collapse navbar-collapse";
+    //   const computedClasses =  isMenuShown ? standardCollapseClasses + ' show' : standardCollapseClasses; 
+    // The code commented above is now handled by classNames call below
 
     // setMenuShown(true) // WARN: that will cause infinite loop of re-render
 
@@ -14,7 +16,7 @@ export function MainMenu() {
             <span className="navbar-toggler-icon" />
         </button>
         {/* <div className={"collapse navbar-collapse" + (true ? " show" : "")}> */}
-        <div className={computedClasses}>
+        <div className={classNames("collapse navbar-collapse", {show: isMenuShown})}>
         <ul className="navbar-nav">
             <li className="nav-item active">
                 <a className="nav-link" href="/auctions">
