@@ -1,4 +1,6 @@
 import PropTypes from 'prop-types'
+import { NavLink } from 'react-router-dom'
+
 
 MainMenuItem.propTypes = {
     link: PropTypes.string.isRequired,
@@ -8,9 +10,9 @@ MainMenuItem.propTypes = {
 export function MainMenuItem({link, name}) {
   return (
     <li className="nav-item">
-        <a className="nav-link" href={link}>
-            {name}
-        </a>
+       <NavLink to={link} className="nav-link" >
+          {name}
+       </NavLink>
     </li>
   )
 }
