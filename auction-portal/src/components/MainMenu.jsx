@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import classNames from 'classnames'
+import { MainMenuItem } from './MainMenuItem';
 
 /* example:
 const myData = [{id: 1, fruit: 'apple'}, {id: 2, fruit: 'banana'}]
@@ -29,13 +30,7 @@ export function MainMenu() {
         <div className={classNames("collapse navbar-collapse", {show: isMenuShown})}>
         <ul className="navbar-nav">
             {
-                menuItems.map(mI => (
-                    <li className="nav-item" key={mI.link}>
-                        <a className="nav-link" href={mI.link}>
-                            {mI.name}
-                        </a>
-                    </li>
-                ))
+                menuItems.map(mI => (<MainMenuItem key={mI.link} name={mI.name} link={mI.link} />))
             }
         </ul>
         </div>
