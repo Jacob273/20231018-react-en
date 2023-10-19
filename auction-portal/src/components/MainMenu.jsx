@@ -7,7 +7,7 @@ export function MainMenu() {
         <button className="navbar-toggler" type="button">
         <span className="navbar-toggler-icon" />
         </button>
-        <div className="collapse navbar-collapse">
+        <div className="collapse navbar-collapse show">
         <ul className="navbar-nav">
             <li className="nav-item active">
                 <a className="nav-link" href="/auctions">
