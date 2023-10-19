@@ -11,13 +11,31 @@
 /** Note 1: Arrow function is ALWAYS anonymous */
 // What is of fundamental importance to us is the ability to abbreviate arrow function
 
-const hello = () => 'Hello'
+const hello = () => {
+	return 'Hello'
+}
 const greetings = name => `Hi ${name} !`
 const manyArguments = (a, b) => a + b
 
 // If the expression has a "result" (evaluates) and can be written in one line - then
 // the return word is added implicitly - it does not need to be written.
 // The result of the function is this what will be calculated on right side of => arrow
+
+const hello3 = function() {
+	return 30
+}
+
+function hello2() {
+	return 'hello !'
+}
+
+console.log(hello2())
+
+console.log(hello())
+
+console.log(hello3())
+
+console.log(greetings('Michał'))
 
 
 /** Note 2: Arrow function can be written multiline */
