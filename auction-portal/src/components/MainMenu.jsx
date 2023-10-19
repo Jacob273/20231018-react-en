@@ -1,9 +1,19 @@
 import { useState } from 'react'
 import classNames from 'classnames'
 
+/* example:
+const myData = [{id: 1, fruit: 'apple'}, {id: 2, fruit: 'banana'}]
+myData.map(obj => obj.id + obj.fruit) 
+*/
+
 export function MainMenu() {
 
   const [isMenuShown, setMenuShown] = useState(false);
+  const menuItems = [
+    {name: 'Auctions', link: '/auctions'},
+    {name: 'Promotions', link: '/promotions'},
+    {name: 'Advices', link: '/advices'},
+  ]
     //   const standardCollapseClasses = "collapse navbar-collapse";
     //   const computedClasses =  isMenuShown ? standardCollapseClasses + ' show' : standardCollapseClasses; 
     // The code commented above is now handled by classNames call below
@@ -18,21 +28,15 @@ export function MainMenu() {
         {/* <div className={"collapse navbar-collapse" + (true ? " show" : "")}> */}
         <div className={classNames("collapse navbar-collapse", {show: isMenuShown})}>
         <ul className="navbar-nav">
-            <li className="nav-item active">
-                <a className="nav-link" href="/auctions">
-                    Auctions
-                </a>
-            </li>
-            <li className="nav-item">
-                <a className="nav-link" href="/promotions">
-                    Promotions
-                </a>
-            </li>
-            <li className="nav-item">
-                <a className="nav-link" href="/advices">
-                    Advices
-                </a>
-            </li>
+            {
+                menuItems.map(mI => (
+                    <li className="nav-item" key={mI.link}>
+                        <a className="nav-link" href={mI.link}>
+                            {mI.name}
+                        </a>
+                    </li>
+                ))
+            }
         </ul>
         </div>
     </nav>
