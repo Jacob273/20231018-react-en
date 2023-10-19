@@ -30,7 +30,8 @@ export function MainMenu() {
         <div className={classNames("collapse navbar-collapse", {show: isMenuShown})}>
         <ul className="navbar-nav">
             {
-                menuItems.map(mI => (<MainMenuItem key={mI.link} name={mI.name} link={mI.link} />))
+                menuItems.map(mI => (<MainMenuItem key={mI.link} {...mI} />))
+                // menuItems.map(mI => (<MainMenuItem key={mI.link} name={mI.name} link={mI.link} />))
             }
         </ul>
         </div>
