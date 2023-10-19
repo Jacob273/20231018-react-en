@@ -6,9 +6,8 @@ import { MainMenu } from './components/MainMenu.jsx'
 function App() {
   return (
     <>
-      <Header title="Auction" />
       <Header />
-      <main>
+      <main className="container">
         <MainMenu />
       </main>
     </>

@@ -6,7 +6,7 @@ Header.propTypes = {
 
 export function Header({title = 'Auction Portal'}) {
    return (
-    <header>
+    <header className="p-4 mb-3 bg-warning">
         <h1>{title}</h1>
     </header>
    ) 
